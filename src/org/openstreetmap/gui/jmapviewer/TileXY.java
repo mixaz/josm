@@ -54,4 +54,9 @@ public class TileXY {
     public double getY() {
         return y;
     }
+
+    @Override
+    public String toString() {
+        return "tile["+x+","+y+"]";
+    }
 }

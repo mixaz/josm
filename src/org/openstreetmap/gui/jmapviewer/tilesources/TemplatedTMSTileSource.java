@@ -43,10 +43,11 @@ public class TemplatedTMSTileSource extends TMSTileSource implements TemplatedTi
     private static final String PATTERN_NEG_Y   = "\\{-y\\}";
     private static final String PATTERN_SWITCH  = "\\{switch:([^}]+)\\}";
     private static final String PATTERN_HEADER  = "\\{header\\(([^,]+),([^}]+)\\)\\}";
+    private static final String PATTERN_YANDEX  = "\\{yandex\\}";
     // CHECKSTYLE.ON: SingleSpaceSeparator
 
     private static final String[] ALL_PATTERNS = {
-        PATTERN_HEADER, PATTERN_ZOOM, PATTERN_X, PATTERN_Y, PATTERN_Y_YAHOO, PATTERN_NEG_Y, PATTERN_SWITCH
+        PATTERN_HEADER, PATTERN_ZOOM, PATTERN_X, PATTERN_Y, PATTERN_Y_YAHOO, PATTERN_NEG_Y, PATTERN_SWITCH, PATTERN_YANDEX
     };
 
     /**
@@ -77,6 +78,18 @@ public class TemplatedTMSTileSource extends TMSTileSource implements TemplatedTi
         }
         matcher.appendTail(output);
         baseUrl = output.toString();
+
+        pattern = Pattern.compile(PATTERN_YANDEX);
+        output = new StringBuffer();
+        matcher = pattern.matcher(baseUrl);
+        while (matcher.find()) {
+            enableYandexMercator(true);
+            matcher.appendReplacement(output, "");
+        }
+        matcher.appendTail(output);
+        baseUrl = output.toString();
+
+        System.out.println("handleTemplate:"+baseUrl);
     }
 
     @Override
