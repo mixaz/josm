@@ -89,7 +89,7 @@ public class TemplatedTMSTileSource extends TMSTileSource implements TemplatedTi
         matcher.appendTail(output);
         baseUrl = output.toString();
 
-        System.out.println("handleTemplate:"+baseUrl);
+//        System.out.println("handleTemplate:"+baseUrl);
     }
 
     @Override

@@ -963,7 +963,7 @@
                   pl.href="http://wiki.openstreetmap.org/wiki/Pl:Key:ford"
                   ru.href="http://wiki.openstreetmap.org/wiki/RU:Key:ford"
                   uk.href="http://wiki.openstreetmap.org/wiki/Uk:Key:ford" />
-            <key key="ford" value="yes" />
+            <combo key="ford" text="Ford" values="yes,stepping_stones" default="yes" values_searchable="true" match="keyvalue!" />
             <optional>
                 <text key="name" text="Name" />
             </optional>
@@ -3479,6 +3479,13 @@
                 <text key="ref" text="Reference" />
             </optional>
         </item> <!-- Taxiway -->
+        <item name="Holding Position" icon="presets/transport/airport/holding_position.svg" type="node" preset_name_label="true">
+            <link href="http://wiki.openstreetmap.org/wiki/Tag:aeroway=holding_position" />
+            <key key="aeroway" value="holding_position" />
+            <optional>
+                <text key="ref" text="Reference" />
+            </optional>
+        </item> <!-- Holding Position -->
         <item name="Helipad" icon="presets/transport/airport/helipad.svg" type="node,closedway" preset_name_label="true">
             <link href="http://wiki.openstreetmap.org/wiki/Tag:aeroway=helipad"
                   de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:aeroway=helipad"
@@ -4900,8 +4907,8 @@
             <text key="ref" text="Point Number" />
             <text key="name" text="Point Name" />
             <text key="operator" text="Operator" />
-            <text key="phone" text="Phone Number" />
-            <label text="(Use international code, like +12-345-67890)" />
+            <text key="emergency_telephone_code" text="Emergency Phone Number" />
+            <label text="(Use number as shown on plate.)" />
             <space />
         </item> <!-- Emergency Access Point -->
         <separator/>
